@@ -1,0 +1,10 @@
+streamlit
+python-dotenv
+zyndai-agent
+langgraph
+langchain-groq
+langchain-core
+groq
+flask
+requests
+pandas
