@@ -1,6 +1,6 @@
 # 🚨 PulseNet: AI-Powered Emergency Coordination Swarm
 
-PulseNet is a dual-intake AI Emergency Copilot powered by a LangGraph multi-agent swarm and Groq. It automates 911 dispatch by processing live audio and citizen SOS inputs, instantly delivering life-saving first-aid while coordinating ambulances, traffic routing, and hospital beds in parallel to drastically reduce emergency response times.
+PulseNet is a dual-intake AI Emergency Copilot powered by a LangGraph multi-agent swarm and Groq. It automates emergency call dispatch by processing live audio and citizen SOS inputs, instantly delivering life-saving first-aid while coordinating ambulances, traffic routing, and hospital beds in parallel to drastically reduce response times.
 
 ## ⚠️ The Problem
 Traditional emergency control centers (ECCs) are bottlenecked by linear, manual processes. Human dispatchers must sequentially transcribe the situation, verbally triage the patient, look up hospital bed availability, and contact ambulance routing. In critical incidents, these manual handoffs cost life-saving minutes.
@@ -9,10 +9,13 @@ Traditional emergency control centers (ECCs) are bottlenecked by linear, manual 
 PulseNet solves this latency crisis by replacing the linear dispatcher workflow with a parallel AI swarm. By automating data extraction and logistical coordination simultaneously, we eliminate manual data-entry delays. 
 
 It serves two distinct fronts:
-1. **Citizen SOS App (User Mode):** Bypasses the 911 call queue by allowing users to submit structured data and instantly receive dynamic, LLM-generated first-aid instructions while the physical response is routed in the background.
-2. **ECC Copilot (Operator Mode):** Listens to live 911 audio transcripts, extracts critical data, and prepares a full dispatch plan. The human operator is freed from typing and acts as the final **Verification Gateway** to approve the AI's dispatch plan.
+1. **Citizen SOS App (User Mode):** Bypasses the standard call queue by allowing users to submit structured data and instantly receive dynamic, LLM-generated first-aid instructions while the physical response is routed in the background.
+2. **ECC Copilot (Operator Mode):** Listens to live emergency call audio transcripts, extracts critical data, and prepares a full dispatch plan. The human operator is freed from typing and acts as the final **Verification Gateway** to approve the AI's dispatch plan.
 
 ## 🧠 Multi-Agent Architecture
+
+
+
 PulseNet utilizes 6 specialized autonomous agents built on the Zynd SDK and LangGraph:
 * **Coordinator Agent (Port 5000):** The master intake node that receives the emergency payload and routes it to triage.
 * **Medical Agent (Port 5001):** Powered by Groq (`llama-3.1-8b-instant`), it analyzes the emergency, generates immediate first-aid directives, and broadcasts the priority level to the logistics swarm.
@@ -27,6 +30,7 @@ PulseNet utilizes 6 specialized autonomous agents built on the Zynd SDK and Lang
 * **LLM Inference:** Groq LPU (`llama-3.1-8b-instant` for ultra-low latency generation)
 * **Frontend:** Streamlit (Custom enterprise-grade dispatch dashboard)
 * **Backend:** Python, Flask, Synchronous Webhooks
+* **Target Hardware:** Optimized for **AMD Instinct™ MI300X Accelerators** for secure, on-premise deployment.
 
 ## 🚀 Running the Prototype Locally
 
